@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TODO list</title>
+
+<style type="text/css">
+body {
+	background: #303030;
+	color: #FFFFFF;
+	font-family: "Tahoma, Geneva, sans-serif";
+}
+.block0 { 
+    width:100%;
+	display:inline-block;	
+	}
+.block1 { 
+	background: #FFFFFF;
+    padding-top: 20px;
+	padding-left: 20px;
+    padding-right: 30px; 
+	padding-bottom: 30px;
+	color:#000000;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	word-wrap:break-word;
+	hyphens:auto;
+	width: 85%;
+	position: relative;
+	min-width: 370px;
+	font-family: "Tahoma, Geneva, sans-serif";
+	font-size: 20px;
+	margin-left: auto;
+    margin-right: auto;	
+	box-shadow: 0px 0px 5px #202020, 3px 3px 3px #202020;
+	
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word;      /* IE */
+	
+	-webkit-transition: all 180ms ease-out 0s;
+    -moz-transition: all 180ms ease-out 0s;
+    -o-transition: all 180ms ease-out 0s;
+    transition: all 180ms ease-out 0s;
+	}
+	
+.newdiv { 
+	background: #FFFFFF;
+    padding-top: 20px;
+	padding-left: 20px;
+    padding-right: 30px; 
+	padding-bottom: 30px;
+	color:#000000;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	word-wrap:break-word;
+	hyphens:auto;
+	width: 85%;
+	position: relative;
+	min-width: 370px;
+	font-family: "Tahoma, Geneva, sans-serif";
+	font-size: 20px;
+	margin-left: auto;
+    margin-right: auto;	
+	box-shadow: 0px 0px 5px #202020, 3px 3px 3px #202020;
+	
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word;      /* IE */
+	
+	-webkit-transition: all 180ms ease-out 0s;
+    -moz-transition: all 180ms ease-out 0s;
+    -o-transition: all 180ms ease-out 0s;
+    transition: all 180ms ease-out 0s;
+	}
+	
+.block1:hover { 
+	width: 87%;
+	box-shadow: 0px 0px 20px #202020, 5px 5px 25px #101010;
+}
+
+.newdiv:hover { 
+	width: 87%;
+	box-shadow: 0px 0px 20px #202020, 5px 5px 25px #101010;
+}
+	
+.block2 { 
+    padding: 2px;
+    padding-right: 2px;
+	color:#B22222;
+	margin-right: 8px;
+	float:left;
+
+	}
+	
+.block3 { 
+    padding: 2px;
+    padding-right: 2px; 
+	color:#008000;
+	margin-right: 8px;
+	margin-bottom: 12px;
+	float:left;
+	}
+	
+.block4 { 
+    padding: 2px;
+    padding-right: 2px; 
+	color:#FF0000;
+	margin-right: 8px;
+	margin-bottom: 12px;
+	float:left;
+	}
+	
+.block5 { 
+    padding: 2px;
+    padding-right: 2px; 
+	color:#cccccc;
+	margin-right: 8px;
+	margin-bottom: 12px;
+	float:left;
+	-webkit-transition: all 360ms ease-out 0s;
+    -moz-transition: all 360ms ease-out 0s;
+    -o-transition: all 360ms ease-out 0s;
+    transition: all 360ms ease-out 0s;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+	
+.block5:hover {
+	color:#ff0000;
+	}
+	
+.block6 { 
+    padding: 2px;
+    padding-right: 2px; 
+	color:#ff0000;
+	margin-right: 8px;
+	margin-bottom: 12px;
+	float:left;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+
+.btn {
+	background: #bbbbbb;
+	background-image: linear-gradient(top, #bcbcbc, #aaaaaa);
+	background-image: linear-gradient(to bottom, #bcbcbc, #aaaaaa);
+	font-family: Helvetica;
+	font-weight:700;
+	text-shadow: -1px -1px 0px #999999;
+	color: #eeeeee;
+	font-size: 20px;
+	padding: 35px 25px 35px 25px;
+	text-decoration: none;
+	
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none;
+}
+
+.btn:hover {
+	background-image: linear-gradient(top, #bfbfbf, #afafaf);
+	background-image: linear-gradient(to bottom, #bfbfbf, #afafaf);
+	text-decoration: none;
+}
+
+.btn1 {
+	background: #81C784;
+	background-image: linear-gradient(top, #81C784, #4CAF50);
+	background-image: linear-gradient(to bottom, #81C784, #4CAF50);
+	font-family: Helvetica;
+	font-weight:700;
+	text-shadow: -1px -1px 0px #999999;
+	color: #eeeeee;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	position: absolute;
+	float: right;
+	bottom: 4px;
+	right: 4px;
+
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none;
+}
+
+.btn1:hover {
+	background-image: linear-gradient(top, #A5D6A7, #66BB6A);
+	background-image: linear-gradient(to bottom, #A5D6A7, #66BB6A);
+	text-decoration: none;
+}
+
+.header {
+	width: 220px;
+	margin-left: auto;
+    margin-right: auto;	
+	
+	color:#FFFFFF;
+	padding-top: 32px;
+	padding-bottom: 8px;
+	
+	font-family: "Impact", Charcoal, sans-serif;
+	font-size: 52px;
+	font-variant: bold;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #303030;
+}
+
+.uncompleteddiv {
+	float: right;
+    padding: 2px;
+    padding-right: 2px; 
+    border: solid 2px #000F55;
+	color:#000F55;
+	margin-right: 3px;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	
+	-ms-transform: rotate(-4deg); /* IE 9 */
+    -webkit-transform: rotate(-4deg); /* Safari */
+    transform: rotate(-4deg);
+
+}
+
+.completeddiv {
+	float: right;
+    padding-left: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+    padding-right: 2px; 
+    border: solid 2px #008000;
+	color:#008000;
+	margin-right: 8px;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	
+	-ms-transform: rotate(-4deg); /* IE 9 */
+    -webkit-transform: rotate(-4deg); /* Safari */
+    transform: rotate(-4deg);
+}
+
+.tasksdiv {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 50%;
+	min-width: 670px;
+	margin-left: auto;
+    margin-right: auto;
+	padding-bottom: 0px;
+}
+
+.maindiv {
+	width: 60%;
+	background: #424242;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	min-width: 700px;
+	margin-left: auto;
+    margin-right: auto;
+	padding-bottom: 40px;
+	box-shadow: 0px 0px 30px #202020, 10px 10px 30px #202020;
+}
+
+.editablediv {
+	display:inline-block;
+	width: 86%;
+	font-family: "Tahoma, Geneva, sans-serif";
+	font-size: 20px;
+	outline: none;
+	margin-top: 7px;
+}
+
+.error {
+	width: 160px;
+	height: 54px;
+	border: 0px rgb(89,89,89) solid;
+	padding: 5px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=54)";
+	filter: alpha(opacity=54);
+	-moz-opacity: 0.54;
+	-khtml-opacity: 0.54;
+	opacity: 0.54;
+	background: rgb(252, 0, 0);
+	color: rgb(0, 0, 0);
+	font-size: inherit;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: inherit;
+	text-decoration: inherit;
+	text-align: center;
+	
+	left: 7px;
+	top: 7px;
+	position:fixed;
+	
+	-webkit-animation: ANIMATION 5s infinite; /* Safari 4+ */
+	-moz-animation:    ANIMATION 5s infinite; /* Fx 5+ */
+	-o-animation:      ANIMATION 5s infinite; /* Opera 12+ */
+	animation:         ANIMATION 5s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes ANIMATION {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@-moz-keyframes ANIMATION {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@-o-keyframes ANIMATION {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes ANIMATION {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+.error1 {
+	width: 160px;
+	height: 54px;
+	border: 0px rgb(89,89,89) solid;
+	padding: 5px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	-khtml-opacity: 0;
+	opacity: 0;
+	background: rgb(252, 0, 0);
+	color: rgb(0, 0, 0);
+	font-size: inherit;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: inherit;
+	text-decoration: inherit;
+	text-align: center;
+	
+	left: 7px;
+	top: 7px;
+	position:fixed;
+}
+
+.hr {
+	width: 108.5%;
+	margin-left: -3.4%;
+	height: 1px;
+	display: block;
+	border: none;
+	background-color: #cccccc;
+}
+
+.r {
+	float: right;
+	margin-right: 90px;
+}
+
+</style>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+function Task(text,important,date) {
+	this.date = date;
+	this.text = text;
+	this.important = important;
+	this.completed = false;
+	this.changecompletedprop = function() { 
+		if (this.completed == false) {
+			this.completed = true; 
+		} else {
+			this.completed = false; 
+		}
+	}
+}
+
+var todolist = new Object();
+todolist.tasks = new Array();
+todolist.dc = 0;
+todolist.impchecked = false;
+//dc counts only tasks that were drawn
+
+todolist.addTask = function () {
+	var text = $("#adddiv").text();
+	if (text == "") {return;}
+	var date = new Date();
+	if (todolist.impchecked) {
+		var important = true;
+	} else {
+		var important = false;
+	}
+	var newtask = new Task(text,important,date);
+	var d = new Date().toString();
+	d = d.split('G');
+	newtask.edited = d[0];
+	todolist.tasks.push(newtask);
+	$("#adddiv").text("");
+	todolist.impchecked = false;
+	$("#imp").attr({class: "block5"});
+	todolist.drawTasks();
+}
+
+todolist.divischanging = false;
+todolist.changingdivi = -1;
+
+todolist.changeDiv = function (number) {
+	if ((todolist.divischanging)&&(todolist.changingdivi != number)) {
+		if (!todolist.interval) {
+			var div = $("<div></div>").attr({class: "error"});
+			div.text("Save changing task before change another!");
+			div.appendTo(".maindiv");
+			todolist.interval = true;
+			setTimeout(function () {$('.error').remove(); todolist.interval = false;}, 5000);
+		}
+		return;
+	}
+	if (todolist.changingdivi == number) {
+		return;
+	}
+	todolist.divischanging = true;
+	todolist.changingdivi = number;
+	document.getElementById('adddiv').contentEditable = 'false';
+	var text = todolist.tasks[number].text;
+	todolist.taskslist[number].div1.html(todolist.taskslist[number].myhtml);
+	var editablediv = $("<div class = 'editablediv' contentEditable='true'></div>").attr({name: "editablediv", id: "editablediv"});
+	editablediv.appendTo(todolist.taskslist[number].div1[0]);
+	var button = $("<button input type = 'button' class = 'btn1'>Save</button>");
+	button.appendTo(todolist.taskslist[number].div1[0]);
+	editablediv.text(text);
+	var html = todolist.taskslist[number].div1.html();
+	todolist.taskslist[number].div1.html(html + "<hr class = 'hr'><font color='#696969'  size = '2px'><i> Ctrl+S to save<div class = 'r'>Edited: " + todolist.tasks[number].edited) + "</i></div>";
+	document.getElementById("editablediv").focus();
+	
+	$(".btn1").on('click', function (event) {
+		todolist.tasks[todolist.taskslist[number].i].text = $('#editablediv').text();
+		var d = new Date().toString();
+		d = d.split('G');
+		todolist.tasks[todolist.taskslist[number].i].edited = d[0];
+		$('#editablediv').remove();
+		todolist.drawTasks();
+		todolist.divischanging = false;
+		todolist.changingdivi = "n";
+		document.getElementById('adddiv').contentEditable = 'true';
+		event.stopPropagation(); 
+	});
+	
+	var isCtrl = false;
+	document.onkeyup=function(e){
+		if(e.keyCode == 17) {isCtrl=false;}
+	}
+	document.onkeydown = function(e){
+		if(e.keyCode == 17) {isCtrl=true;}
+		if((e.keyCode == 83) && (isCtrl)) {
+			todolist.tasks[todolist.taskslist[number].i].text = $('#editablediv').text();
+			var d = new Date().toString();
+			d = d.split('G');
+			todolist.tasks[todolist.taskslist[number].i].edited = d[0];
+			$('#editablediv').remove();
+			todolist.drawTasks();
+			todolist.divischanging = false;
+			todolist.changingdivi = "n";
+			document.getElementById('adddiv').contentEditable = 'true';
+			return false;
+		}
+	}
+}
+
+todolist.taskslist = new Array();
+
+todolist.drawTasks = function () {
+	$('.block0').remove();
+	todolist.taskslist = [];
+	todolist.dc = 0;
+	if (todolist.tasks.length != 0) {
+		for (var i = 0; i < todolist.tasks.length; i++) {
+			if (!(todolist.tasks[i].important)&&(document.form2.onlyimp.checked)) {
+				continue;
+			}
+			if ((todolist.tasks[i].completed)&&(document.form1.hidecomp.checked)) {
+				continue;
+			}
+			var div0 = $("<div></div>").attr({class: "block0"});
+			div0.appendTo('#tasksdiv');
+			var div1 = $("<div></div>").attr({class: "block1"});
+			div1.appendTo(div0);
+			var div2 = $("<div></div>").attr({class: "block2"});
+			div2.text("#" + i + "  ");
+			div2.appendTo(div1);
+			var div3 = $("<div></div>").attr({class: "block3"});
+			div3.text(todolist.tasks[i].date.toDateString());
+			div3.appendTo(div1);
+			if (todolist.tasks[i].important) {
+				var div4 = $("<div></div>").attr({class: "block4"});
+				div4.text("Important!");
+				div4.appendTo(div1);
+			}
+			if (todolist.tasks[i].completed) {
+				var div5 = $("<div></div>").attr({class: "completeddiv"});
+				div5.text("Completed");
+				div5.appendTo(div1);
+			} else {
+				var div5 = $("<div></div>").attr({class: "uncompleteddiv"});
+				div5.text("Uncompleted");
+				div5.appendTo(div1);
+			}
+			var html = div1.html();
+			div1.html(html + "<br><br>" + todolist.tasks[i].text);
+			
+			var task = {
+				div0: div0,
+				div1: div1,
+				div2: div2,
+				div3: div3,
+				div4: div4,
+				div5: div5,
+				i: i,
+				dc: todolist.dc,
+				myhtml: html
+			};
+			todolist.taskslist.push(task);
+
+			todolist.dc++;
+		}
+
+		var tasklist1 = $('.block1');
+		$.each(tasklist1, function(i, div) {
+			$(div).click(function() {
+				var dc = tasklist1[i];
+				todolist.changeDiv(i);
+			});
+		});
+		var tasklist5 = $('.completeddiv, .uncompleteddiv');
+		$.each(tasklist5, function(i, div) {
+			$(div).click(function() {
+				if (!todolist.divischanging) {
+					var dc = tasklist5[i];
+					todolist.tasks[i].changecompletedprop();
+					event.stopPropagation(); 
+					todolist.drawTasks();
+				}
+			});
+		});
+	}
+}
+
+
+$(document).ready(function() {
+	$("#hidecomp").change(function() {todolist.drawTasks();});
+	$("#onlyimp").change(function() {todolist.drawTasks();});
+	
+	var div1 = $("<div></div>").attr({class: "newdiv"});
+	div1.appendTo('#add');
+	var div2 = $("<div></div>").attr({class: "block2"});
+	div2.text("+  ");
+	div2.appendTo(div1);
+	var div3 = $("<div></div>").attr({class: "block3"});
+	var date = new Date();
+	div3.text(date.toDateString());
+	div3.appendTo(div1);
+	var div4 = $("<div></div>").attr({class: "block5", id: "imp"});
+	div4.text("Important!");
+	div4.appendTo(div1);
+	var adddiv = $("<div class = 'editablediv' contentEditable='true'></div>").attr({name: "adddiv", id: "adddiv"});
+	adddiv.appendTo(div1);
+	var button = $("<button input type = 'button' class = 'btn1' id = 'addbutton'>Add</button>");
+	button.appendTo(div1);
+	var html = div1.html();
+	div1.html(html + "<hr class = 'hr'><font color='#696969'  size = '2px'><i> Write new task here</i>");
+	document.getElementById("adddiv").focus();
+	$("#imp").on('click', function (event) {
+		if (!todolist.impchecked) {
+			$("#imp").attr({class: "block6"});
+			todolist.impchecked = true;
+		} else {
+			$("#imp").attr({class: "block5"});
+			todolist.impchecked = false;
+		}
+	});
+	$("#addbutton").on('click', function (event) {todolist.addTask();});
+});
+</script>
+
+</head>
+
+
+
+<body>
+ <div id = "maindiv" class = "maindiv">
+<div id="tasksdiv" class = "tasksdiv"><div id = 'header' class = 'header'>TO DO LIST</div></div>
+
+
+<div id = 'add' class = 'tasksdiv'></div>
+
+<table width="300" align="center">
+  <tr>
+    <td><form id="form1" name="form1" method="post" action="">
+      <input type="checkbox" name="hidecomp" id="hidecomp" />
+      <label for="hidecomp">Hide completed</label>
+    </form></td>
+    <td><form id="form2" name="form2" method="post" action="">
+      <input type="checkbox" name="onlyimp" id="onlyimp" />
+      <label for="onlyimp">Show only important</label>
+    </form></td>
+  </tr>
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TODO list</title>
+
+<style type="text/css">
+body {
+	background: url(http://designmodo.com/wp-content/uploads/2011/11/Wood-Textures-1.jpg);
+	color: #F0E68C;
+}
+.block0 { 
+    width:100%;
+	display:inline-block;	
+	}
+.block1 { 
+    padding-top: 13px;
+	padding-left: 20px;
+    padding-right: 30px; 
+	color:#000F55;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	word-wrap:break-word;
+	hyphens:auto;
+	width: 85%;
+	min-width: 370px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-size: 24px;
+	font-style: bold;
+	font-variant: normal;
+	
+	margin-left: 75px;
+    margin-right: 5px;
+	
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word;      /* IE */
+	}
+.block2 { 
+    padding: 2px;
+    padding-right: 2px;
+	color:#B22222;
+	margin-right: 8px;
+	float:left;
+
+	}
+.block3 { 
+    padding: 2px;
+    padding-right: 2px; 
+	color:#008000;
+	margin-right: 8px;
+	margin-bottom: 6px;
+	float:left;
+	}
+.block4 { 
+    padding: 2px;
+    padding-right: 2px; 
+	color:#FF0000;
+	margin-right: 8px;
+	margin-bottom: 6px;
+	float:left;
+
+	}
+.btn {
+	background: #bbbbbb;
+	background-image: linear-gradient(top, #bcbcbc, #aaaaaa);
+	background-image: linear-gradient(to bottom, #bcbcbc, #aaaaaa);
+	border-radius: 10px;
+	font-family: Helvetica;
+	font-weight:700;
+	text-shadow: -1px -1px 0px #999999;
+	color: #eeeeee;
+	font-size: 20px;
+	padding: 35px 25px 35px 25px;
+	text-decoration: none;
+	
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none;
+}
+
+.btn:hover {
+	background-image: linear-gradient(top, #bfbfbf, #afafaf);
+	background-image: linear-gradient(to bottom, #bfbfbf, #afafaf);
+	text-decoration: none;
+}
+
+.header {
+	width: 320px;
+	margin-left: auto;
+    margin-right: auto;	
+	
+	color:#000F55;
+	margin-top: 12px;
+	
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-size: 52px;
+	font-variant: normal;
+}
+
+.uncompleteddiv {
+	float: right;
+    padding: 2px;
+    padding-right: 2px; 
+    border: solid 2px #000F55;
+	color:#000F55;
+	margin-right: 3px;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	
+	-ms-transform: rotate(-4deg); /* IE 9 */
+    -webkit-transform: rotate(-4deg); /* Safari */
+    transform: rotate(-4deg);
+}
+
+.completeddiv {
+	float: right;
+    padding-left: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+    padding-right: 2px; 
+    border: solid 2px #008000;
+	color:#008000;
+	margin-right: 8px;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	
+	-ms-transform: rotate(-4deg); /* IE 9 */
+    -webkit-transform: rotate(-4deg); /* Safari */
+    transform: rotate(-4deg);
+}
+
+.tasksdiv {
+	background-image:  url(http://rghost.ru/8SB5tWWvP/image.png);
+	background-repeat: repeat-y;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	width: 50%;
+	min-width: 670px;
+	margin-left: auto;
+    margin-right: auto;
+	padding-bottom: 40px;
+}
+
+</style>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+function Task(text,important,date) {
+	this.date = date;
+	this.text = text;
+	this.important = important;
+	this.completed = false;
+	this.changecompletedprop = function() { 
+		if (this.completed == false) {
+			this.completed = true; 
+		} else {
+			this.completed = false; 
+		}
+	}
+}
+
+var todolist = new Object();
+todolist.tasks = new Array();
+todolist.dc = 0;
+//dc counts only tasks that were drawn
+
+todolist.addTask = function () {
+	var text = document.form0.textarea0.value;
+	if (text == "") {return;}
+	var date = new Date();
+	if (document.form0.important.checked == true) {
+		var important = true;
+	} else {
+		var important = false;
+	}
+	var newtask = new Task(text,important,date);
+	todolist.tasks.push(newtask);
+	document.form0.textarea0.value = "";
+	document.form0.important.checked = false;
+	todolist.drawTasks();
+}
+
+todolist.divischanging = false;
+todolist.changingdivi = -1;
+
+todolist.changeDiv = function (number) {
+	if ((todolist.divischanging)&&(todolist.changingdivi != number)) {
+		alert('Save changing task before change another!');
+		return;
+	}
+	if (todolist.changingdivi == number) {
+		return;
+	}
+	todolist.divischanging = true;
+	todolist.changingdivi = number;
+	document.getElementById("textarea0").disabled = true;
+	var text = todolist.tasks[number].text;
+	todolist.tasks[number].text = "";
+	todolist.drawTasks();
+	var textarea = $("<textarea></textarea>").attr({name: "textarea1", id: "textarea1", cols: "60", rows: "4"});
+	textarea.appendTo(todolist.taskslist[number].div1[0]);
+	console.log(todolist.taskslist[number].div1[0]);
+	textarea.text(text);
+	var html = todolist.taskslist[number].div1.html();
+	todolist.taskslist[number].div1.html(html + "<br><font color='#696969'  size = '2px'><i> Ctrl+S to save</i>");
+	//todolist.tasks[i].text = "<textarea name = 'textareatmp' id = 'textareatmp' cols = '50'>" + text + "</textarea><br><font color='#696969'  size = '2px'><i> Ctrl+S to save</i></font>";
+	var isCtrl = false;
+	document.onkeyup=function(e){
+		if(e.keyCode == 17) {isCtrl=false;}
+	}
+	document.onkeydown=function(e){
+		if(e.keyCode == 17) {isCtrl=true;}
+		if((e.keyCode == 83) && (isCtrl)) {
+			todolist.tasks[todolist.taskslist[number].i].text = document.getElementById('textarea1').value;
+			$('#textarea1').remove();
+			todolist.drawTasks();
+			todolist.divischanging = false;
+			todolist.changingdivi = "n";
+			document.getElementById("textarea0").disabled = false;
+			return false;
+		}
+	}
+}
+
+todolist.taskslist = new Array();
+
+todolist.drawTasks = function () {
+	$('.block1').remove();
+	$('.block0').remove();
+	todolist.taskslist = [];
+	todolist.dc = 0;
+	if (todolist.tasks.length == 0) {
+		var notasksyetdiv0 = $("<div></div>").attr({class: "block0"});
+		notasksyetdiv0.appendTo('#tasksdiv')
+		$("<div></div>").attr({class: "block1"}).appendTo(notasksyetdiv0).text("No tasks yet");
+		//addDiv("<div class = 'block1' id = 'notasksyetdiv'>No tasks yet</div>");
+	}
+	for (var i = 0; i < todolist.tasks.length; i++) {
+		//addDiv("<div class = 'block1' id = '" + dc + "'  onclick = 'changeDiv(" + i + ")'><div class = 'block2'>#" + i
+		//+ "   </div><div class = 'block3'>" + tasks[i].date.toDateString() + "</div>" + imp + comp + "<br><br>" + tasks[i].text + "</div>");
+		if (!(todolist.tasks[i].important)&&(document.form2.onlyimp.checked)) {
+			continue;
+		}
+		if ((todolist.tasks[i].completed)&&(document.form1.hidecomp.checked)) {
+			continue;
+		}
+		var div0 = $("<div></div>").attr({class: "block0"});
+		div0.appendTo('#tasksdiv');
+		var div1 = $("<div></div>").attr({class: "block1"});
+		div1.appendTo(div0);
+		var div2 = $("<div></div>").attr({class: "block2"});
+		div2.text("#" + i + "  ");
+		div2.appendTo(div1);
+		var div3 = $("<div></div>").attr({class: "block3"});
+		div3.text(todolist.tasks[i].date.toDateString());
+		div3.appendTo(div1);
+		if (todolist.tasks[i].important) {
+			var div4 = $("<div></div>").attr({class: "block4"});
+			div4.text("Important!");
+			div4.appendTo(div1);
+		}
+		if (todolist.tasks[i].completed) {
+			var div5 = $("<div></div>").attr({class: "completeddiv"});
+			div5.text("Completed");
+			div5.appendTo(div1);
+		} else {
+			var div5 = $("<div></div>").attr({class: "uncompleteddiv"});
+			div5.text("Uncompleted");
+			div5.appendTo(div1);
+		}
+		var html = div1.html();
+		div1.html(html + "<br><br>" + todolist.tasks[i].text);
+		
+		var task = {
+			div0: div0,
+			div1: div1,
+			div2: div2,
+			div3: div3,
+			div4: div4,
+			div5: div5,
+			i: i,
+			dc: todolist.dc,
+			
+		};
+		todolist.taskslist.push(task);
+
+		todolist.dc++;
+	}
+	console.log("taskslist[]:\n", todolist.taskslist);
+
+	var tasklist1 = $('.block1');
+	$.each(tasklist1, function(i, div) {
+		$(div).click(function() {
+			var dc = tasklist1[i];
+			todolist.changeDiv(i);
+		});
+	});
+	var tasklist5 = $('.completeddiv, .uncompleteddiv');
+	$.each(tasklist5, function(i, div) {
+		$(div).click(function() {
+			var dc = tasklist5[i];
+			todolist.tasks[i].changecompletedprop();
+			event.stopPropagation(); 
+			todolist.drawTasks();
+		});
+	});
+
+
+}
+
+
+$(document).ready(function() {
+	todolist.drawTasks();
+	$("#hidecomp").change(function() {todolist.drawTasks();});
+	$("#onlyimp").change(function() {todolist.drawTasks();});
+	$("#button0").on('click', function (event) {todolist.addTask();});
+});
+</script>
+
+</head>
+
+
+
+<body>
+ 
+<div id="tasksdiv" class = "tasksdiv"><div id = 'header' class = 'header'>TO DO LIST</div></div>
+
+<!--<hr width="60%">-->
+
+<table width="300" align="center">
+  <tr>
+    <td><form id="form1" name="form1" method="post" action="">
+      <input type="checkbox" name="hidecomp" id="hidecomp" />
+      <label for="hidecomp">Hide completed</label>
+    </form></td>
+    <td><form id="form2" name="form2" method="post" action="">
+      <input type="checkbox" name="onlyimp" id="onlyimp" />
+      <label for="onlyimp">Show only important</label>
+    </form></td>
+  </tr>
+</table>
+
+<!--<hr width="60%">-->
+
+<form id = "form0" name = "form0" method = "post" action = "">
+
+<table width="381" align="center">
+  <tr>
+    <td width="317"><label for = "textarea0"><em>Write new task here</em></label></td>
+    <td width="52"></td>
+  </tr>
+  <tr>
+    <td><textarea name = "textarea" cols = "50" rows = "6" id = "textarea0"></textarea></td>
+    <td><button input type = "button" class = "btn" id = "button0">Add</button></td>
+  </tr>
+  <tr>
+    <td><input type = "checkbox" name = "important" id = "important"/><label for = "important">Important</label></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br>
+</form>
+
+
+</body>
+</html>
