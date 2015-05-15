@@ -445,14 +445,14 @@ todolist.changeDiv = function (number) {
 	todolist.taskslist[number].div1.html(todolist.taskslist[number].myhtml);
 	var editablediv = $("<div class = 'editablediv' contentEditable='true'></div>").attr({name: "editablediv", id: "editablediv"});
 	editablediv.appendTo(todolist.taskslist[number].div1[0]);
-	var button = $("<button input type = 'button' class = 'btn1'>Save</button>");
+	var button = $("<button input type = 'button' class = 'btn1' id = 'save'>Save</button>");
 	button.appendTo(todolist.taskslist[number].div1[0]);
 	editablediv.text(text);
 	var html = todolist.taskslist[number].div1.html();
 	todolist.taskslist[number].div1.html(html + "<hr class = 'hr'><font color='#696969'  size = '2px'><i> Ctrl+S to save<div class = 'r'>Edited: " + todolist.tasks[number].edited) + "</i></div>";
 	document.getElementById("editablediv").focus();
 	
-	$(".btn1").on('click', function (event) {
+	$("#save").on('click', function (event) {
 		todolist.tasks[todolist.taskslist[number].i].text = $('#editablediv').text();
 		var d = new Date().toString();
 		d = d.split('G');
