@@ -457,7 +457,6 @@ todolist.changeDiv = function (number) {
 		var d = new Date().toString();
 		d = d.split('G');
 		todolist.tasks[todolist.taskslist[number].i].edited = d[0];
-		$('#editablediv').remove();
 		todolist.drawTasks();
 		todolist.divischanging = false;
 		todolist.changingdivi = "n";
@@ -476,7 +475,6 @@ todolist.changeDiv = function (number) {
 			var d = new Date().toString();
 			d = d.split('G');
 			todolist.tasks[todolist.taskslist[number].i].edited = d[0];
-			$('#editablediv').remove();
 			todolist.drawTasks();
 			todolist.divischanging = false;
 			todolist.changingdivi = "n";
