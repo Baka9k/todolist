@@ -422,7 +422,6 @@ todolist.addTask = function () {
 
 	var div1 = $("<div class = 'block1'></div>")
 	div1.appendTo('#tasksdiv');
-	$('.block1').click(function() {todolist.changeDiv(i)});
 	$("<div class = 'block2'></div>").text("#" + todolist.dc + "  ").appendTo(div1);
 	$("<div class = 'block3'></div>").text(date.toDateString()).appendTo(div1);
 	if (important) {$("<div class = 'block4'></div>").text("Important!").appendTo(div1);}
@@ -433,39 +432,31 @@ todolist.addTask = function () {
 			event.stopPropagation(); 
 		}
 	});
-	$("<div class = 'editablediv' contentEditable = 'true' name = 'editablediv' id = 'editablediv'></div>").appendTo(div1).text(text);
+	$("<div class = 'editablediv' contentEditable = 'true'></div>").attr({id: todolist.dc}).appendTo(div1).text(text);
+	
+	var tasklist = $('.block1');
+	$.each(tasklist, function(i, div) {
+		$(div).click(function() {
+			var dc = tasklist[i];
+			todolist.changeDiv(i);
+		});
+	});
+		
 	todolist.dc++;
 }
 
 todolist.changeDiv = function (number) {
-	if ((todolist.divischanging)&&(todolist.changingdivi != number)) {
-		if (todolist.changingdivi == number) {return;}
-		save();
-	}
+	if ((todolist.divischanging)&&(todolist.changingdivi != number)) {todolist.save();}
+	if ((todolist.divischanging)&&(todolist.changingdivi == number)) {return;}
 	todolist.divischanging = true;
 	todolist.changingdivi = number;
-	document.getElementById('adddiv').contentEditable = 'false';
-	//$( "li.item-ii" ).find( "li" ).css( "background-color", "red" );
-	var text = todolist.tasks[todolist.taskslist[number].i].text;
-	todolist.taskslist[number].div1.html(todolist.taskslist[number].myhtml);
-	$("<div class = 'editablediv' contentEditable = 'true' id = 'editablediv'></div>").appendTo(todolist.taskslist[number].div1[0]).text(text);
+	document.getElementById(number).contentEditable = 'true';
 	$("<button input type = 'button' class = 'btn1' id = 'save'>Save</button>").appendTo(todolist.taskslist[number].div1[0]);
 	var html = todolist.taskslist[number].div1.html();
 	todolist.taskslist[number].div1.html(html + "<hr class = 'hr'><font color='#696969'  size = '2px'><i> Ctrl+S to save<div class = 'r'>Edited: " + todolist.tasks[number].edited) + "</i></div>";
 	document.getElementById("editablediv").focus();
 	
-	$("#save").on('click', function (event) {
-	function save() {
-		todolist.tasks[todolist.taskslist[number].i].text = $('#editablediv').text();
-		var d = new Date().toString();
-		d = d.split('G');
-		todolist.tasks[todolist.taskslist[number].i].edited = d[0];
-		todolist.drawTasks();
-		todolist.divischanging = false;
-		todolist.changingdivi = "-1";
-		document.getElementById('adddiv').contentEditable = 'true';
-		event.stopPropagation(); 
-	});
+	$("#save").on('click', function (event) {todolist.save();});
 	
 	var isCtrl = false;
 	document.onkeyup=function(e){
@@ -474,18 +465,23 @@ todolist.changeDiv = function (number) {
 	document.onkeydown = function(e){
 		if(e.keyCode == 17) {isCtrl=true;}
 		if((e.keyCode == 83) && (isCtrl)) {
-			todolist.tasks[todolist.taskslist[number].i].text = $('#editablediv').text();
-			var d = new Date().toString();
-			d = d.split('G');
-			todolist.tasks[todolist.taskslist[number].i].edited = d[0];
-			todolist.drawTasks();
-			todolist.divischanging = false;
-			todolist.changingdivi = "n";
-			document.getElementById('adddiv').contentEditable = 'true';
+			todolist.save();
 			return false;
 		}
 	}
 }
+
+todolist.save = function () {
+	$("#save").remove();
+	if (!todolist.divischanging) {return;}
+	todolist.tasks[todolist.changingdivi].text = $('#editablediv').text();
+	var d = new Date().toString();
+	d = d.split('G');
+	todolist.tasks[todolist.changingdivi].edited = d[0];
+	todolist.divischanging = false;
+	todolist.changingdivi = "-1";
+	event.stopPropagation(); 
+};
 
 $(document).ready(function() {
 	$("#hidecomp").change(function() {todolist.drawTasks();});
@@ -510,6 +506,7 @@ $(document).ready(function() {
 		}
 	});
 	$("#addbutton").on('click', function (event) {todolist.addTask();});
+	$("#adddiv").on('click', function (event) {todolist.save();});
 });
 </script>
 
