@@ -4,7 +4,7 @@ body {
 	font-family: "Tahoma, Geneva, sans-serif";
 }
 
-.block1 { 
+.task { 
 	background: #FFFFFF;
     padding-top: 20px;
 	padding-left: 20px;
@@ -68,7 +68,7 @@ body {
     transition: all 180ms ease-out 0s;
 	}
 	
-.block1:hover { 
+.task:hover { 
 	width: 87%;
 	box-shadow: 0px 0px 20px #202020, 5px 5px 25px #101010;
 }
@@ -78,7 +78,7 @@ body {
 	box-shadow: 0px 0px 20px #202020, 5px 5px 25px #101010;
 }
 	
-.block2 { 
+.tasknumber { 
     padding: 2px;
     padding-right: 2px;
 	color:#B22222;
@@ -87,7 +87,7 @@ body {
 
 	}
 	
-.block3 { 
+.taskdate { 
     padding: 2px;
     padding-right: 2px; 
 	color:#008000;
@@ -96,7 +96,7 @@ body {
 	float:left;
 	}
 	
-.block4 { 
+.important { 
     padding: 2px;
     padding-right: 2px; 
 	color:#FF0000;
@@ -105,7 +105,7 @@ body {
 	float:left;
 	}
 	
-.block5 { 
+.addimportantfalse { 
     padding: 2px;
     padding-right: 2px; 
 	color:#cccccc;
@@ -124,11 +124,11 @@ body {
     user-select: none;
 	}
 	
-.block5:hover {
+.addimportantfalse:hover {
 	color:#ff0000;
 	}
 	
-.block6 { 
+.addimportanttrue { 
     padding: 2px;
     padding-right: 2px; 
 	color:#ff0000;
@@ -287,73 +287,6 @@ body {
 	margin-top: 7px;
 }
 
-.error {
-	width: 160px;
-	height: 54px;
-	border: 0px rgb(89,89,89) solid;
-	padding: 5px;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=54)";
-	filter: alpha(opacity=54);
-	-moz-opacity: 0.54;
-	-khtml-opacity: 0.54;
-	opacity: 0.54;
-	background: rgb(252, 0, 0);
-	color: rgb(0, 0, 0);
-	font-size: inherit;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: inherit;
-	text-decoration: inherit;
-	text-align: center;
-	
-	left: 7px;
-	top: 7px;
-	position:fixed;
-	
-	-webkit-animation: ANIMATION 5s infinite; /* Safari 4+ */
-	-moz-animation:    ANIMATION 5s infinite; /* Fx 5+ */
-	-o-animation:      ANIMATION 5s infinite; /* Opera 12+ */
-	animation:         ANIMATION 5s infinite; /* IE 10+, Fx 29+ */
-}
-
-@-webkit-keyframes ANIMATION {
-  0%   { opacity: 0.9; }
-  100% { opacity: 0; }
-}
-@-moz-keyframes ANIMATION {
-  0%   { opacity: 0.9; }
-  100% { opacity: 0; }
-}
-@-o-keyframes ANIMATION {
-  0%   { opacity: 0.9; }
-  100% { opacity: 0; }
-}
-@keyframes ANIMATION {
-  0%   { opacity: 0.9; }
-  100% { opacity: 0; }
-}
-
-.error1 {
-	width: 160px;
-	height: 54px;
-	border: 0px rgb(89,89,89) solid;
-	padding: 5px;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
-	-moz-opacity: 0;
-	-khtml-opacity: 0;
-	opacity: 0;
-	background: rgb(252, 0, 0);
-	color: rgb(0, 0, 0);
-	font-size: inherit;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: inherit;
-	text-decoration: inherit;
-	text-align: center;
-	
-	left: 7px;
-	top: 7px;
-	position:fixed;
-}
 
 .hr {
 	width: 108.5%;

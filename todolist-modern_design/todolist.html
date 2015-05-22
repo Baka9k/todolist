@@ -48,18 +48,18 @@ todolist.addTask = function () {
 	todolist.tasks.push(newtask);
 	$("#adddiv").text("");
 	todolist.impchecked = false;
-	$("#imp").attr({class: "block5"});
+	$("#imp").attr({class: "addimportantfalse"});
 
-	var div1 = $("<div class = 'block1'></div>")
+	var div1 = $("<div class = 'task'></div>")
 	div1.attr({id: todolist.dc}).appendTo('#tasksdiv');
-	$("<div class = 'block2'></div>").text("#" + todolist.dc + "  ").appendTo(div1);
-	$("<div class = 'block3'></div>").text(date.toDateString()).appendTo(div1);
-	if (important) {$("<div class = 'block4'></div>").text("Important!").appendTo(div1);}
+	$("<div class = 'tasknumber'></div>").text("#" + todolist.dc + "  ").appendTo(div1);
+	$("<div class = 'taskdate'></div>").text(date.toDateString()).appendTo(div1);
+	if (important) {$("<div class = 'important'></div>").text("Important!").appendTo(div1);}
 	$("<div class = 'uncompleteddiv'></div>").text("Uncompleted").appendTo(div1);
 
 	$("<div class = 'editablediv'></div>").appendTo(div1).text(text);
 	
-	$('.block1').prop('onclick',null).off('click');
+	$('.task').prop('onclick',null).off('click');
 	$('.completeddiv, .uncompleteddiv').prop('onclick',null).off('click');
 	
 	var tasklist0 = $('.completeddiv, .uncompleteddiv');
@@ -77,7 +77,7 @@ todolist.addTask = function () {
 		});
 	});
 	
-	var tasklist1 = $('.block1');
+	var tasklist1 = $('.task');
 	$.each(tasklist1, function(i, div) {
 		$(div).click(function() {
 			todolist.changeDiv(i);
@@ -140,7 +140,7 @@ $(document).ready(function() {
 			todolist.hidecomp = true;
 		} else {
 			for (var i = 0; i < todolist.tasks.length; i++) {
-				$('#' + i).attr({class: 'block1'});
+				$('#' + i).attr({class: 'task'});
 			}
 			todolist.hidecomp = false;
 		}
@@ -155,7 +155,7 @@ $(document).ready(function() {
 			todolist.onlyimp = true;
 		} else {
 			for (var i = 0; i < todolist.tasks.length; i++) {
-				$('#' + i).attr({class: 'block1'});
+				$('#' + i).attr({class: 'task'});
 			}
 			todolist.onlyimp = false;
 		}
@@ -163,20 +163,20 @@ $(document).ready(function() {
 	});
 	
 	var div1 = $("<div class = 'newdiv'></div>").appendTo('#add');
-	$("<div class = 'block2'></div>").text("+  ").appendTo(div1);
+	$("<div class = 'tasknumber'></div>").text("+  ").appendTo(div1);
 	var date = new Date();
-	$("<div class = 'block3'></div>").attr({class: "block3"}).text(date.toDateString()).appendTo(div1);
-	$("<div class = 'block5' id = 'imp'></div>").text("Important!").appendTo(div1);
+	$("<div class = 'taskdate'></div>").attr({class: "taskdate"}).text(date.toDateString()).appendTo(div1);
+	$("<div class = 'addimportantfalse' id = 'imp'></div>").text("Important!").appendTo(div1);
 	$("<div class = 'editablediv' contentEditable='true' id = 'adddiv'></div>").appendTo(div1);
 	$("<button input type = 'button' class = 'btn1' id = 'addbutton'>Add</button>").appendTo(div1);
 	$("<div><hr class = 'hr'><font color = '#696969' size = '2px'><i> Write new task here</i></div>").appendTo(div1);
 	document.getElementById("adddiv").focus();
 	$("#imp").on('click', function (event) {
 		if (!todolist.impchecked) {
-			$("#imp").attr({class: "block6"});
+			$("#imp").attr({class: "addimportanttrue"});
 			todolist.impchecked = true;
 		} else {
-			$("#imp").attr({class: "block5"});
+			$("#imp").attr({class: "addimportantfalse"});
 			todolist.impchecked = false;
 		}
 	});
