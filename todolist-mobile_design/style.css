@@ -15,9 +15,8 @@ body {
 	color:#000000;
 	word-wrap:break-word;
 	position: relative;
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 0px;
+	margin-right: 0px;
 	min-width: 370px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 20px;
@@ -36,8 +35,12 @@ body {
     -moz-transition: all 180ms ease-out 0s;
     -o-transition: all 180ms ease-out 0s;
     transition: all 60ms ease-out 0s;
-	}
 	
+	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb;
+    -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb;
+    box-shadow:         inset -14px 0px 18px -15px #bbbbbb, inset 14px 0px 18px -15px #bbbbbb;
+}
+
 .newdiv { 
 	background: #FFFFFF;
     padding-top: 20px;
@@ -47,13 +50,14 @@ body {
 	color:#000000;
 	word-wrap:break-word;
 	position: absolute; 
-	bottom: 0;
-	width: 90%;
+	bottom: 10px;
+	left: 0px;
+	right: 0px;
 	min-width: 370px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 20px;
 	border: 1px solid rgba(255,255,255,0);
-	border-bottom-color: #cccccc;
+	border-top-color: #cccccc;
 	-webkit-background-clip: padding-box;   /* for Safari */
     background-clip: padding-box; 			/* for IE9+, Firefox 4+, Opera, Chrome */
 	
@@ -67,6 +71,10 @@ body {
     -moz-transition: all 180ms ease-out 0s;
     -o-transition: all 180ms ease-out 0s;
     transition: all 60ms ease-out 0s;
+	
+	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb;
+    -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb;
+    box-shadow:         inset -14px 0px 18px -15px #bbbbbb, inset 14px 0px 18px -15px #bbbbbb;
 }
 	
 .task:hover { 
@@ -80,7 +88,7 @@ body {
 .tasknumber { 
     padding: 2px;
     padding-right: 2px;
-	color:#B22222;
+	color:#777777;
 	margin-right: 8px;
 	float:left;
 
@@ -89,7 +97,7 @@ body {
 .taskdate { 
     padding: 2px;
     padding-right: 2px; 
-	color:#008000;
+	color:#999999;
 	margin-right: 8px;
 	margin-bottom: 12px;
 	float:left;
@@ -257,15 +265,20 @@ body {
 	margin-left: 20%;
     margin-right: auto;
 	padding-bottom: 40px;
-	overflow: scroll;
-	-ms-overflow-style: none;
-	overflow: -moz-scrollbars-none;
 	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
     -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
     box-shadow:         inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
 }
 
-.maindiv::-webkit-scrollbar { width: 0 !important }
+.tasksdiv::-webkit-scrollbar { width: 0 !important }
+
+.tasksdiv {
+	margin-top: 22px;
+	height: 76%;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}
 
 .editablediv {
 	display:inline-block;

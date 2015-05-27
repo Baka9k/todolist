@@ -85,8 +85,10 @@ todolist.addTask = function () {
 	});
 		
 	todolist.dc++;
-	
-	console.log(todolist.tasks);
+	var objDiv = document.getElementById("tasksdiv");
+	//objDiv.scrollTop = objDiv.scrollHeight;
+	$("#tasksdiv").stop(true, false).animate({scrollTop: $("#tasksdiv").get(0).scrollHeight}, 1000);
+	document.getElementById("adddiv").focus();
 }
 
 todolist.changeDiv = function (number) {
@@ -118,7 +120,6 @@ todolist.changeDiv = function (number) {
 todolist.save = function () {
 	if (!todolist.divischanging) {return;}
 	$("#save").remove();
-	$("#ed").remove();
 	$('#' + todolist.changingdivi).find('.editablediv').attr({contentEditable: false});
 	todolist.tasks[todolist.changingdivi].text = $('#' + todolist.changingdivi).text();
 	var d = new Date().toString();
@@ -126,6 +127,7 @@ todolist.save = function () {
 	todolist.tasks[todolist.changingdivi].edited = d[0];
 	todolist.divischanging = false;
 	todolist.changingdivi = "-1"; 
+	document.getElementById("adddiv").focus();
 };
 
 $(document).ready(function() {
@@ -192,7 +194,7 @@ $(document).ready(function() {
 <div id="tasksdiv" class = "tasksdiv"><div id = 'header' class = 'header'>TO DO LIST</div></div>
 
 
-<div id = 'add' class = 'tasksdiv'></div>
+<div id = 'add'></div>
 
 <table width="300" align="center">
   <tr>
