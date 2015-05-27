@@ -96,7 +96,6 @@ todolist.changeDiv = function (number) {
 	todolist.changingdivi = number;
 	$('#' + number).find('.editablediv').attr({contentEditable: true});
 	$("<button input type = 'button' class = 'btn1' id = 'save'>Save</button>").appendTo(document.getElementById(number));
-	$("<div class = 'editeddiv' id = 'ed'><hr class = 'hr'><font color='#696969'  size = '2px'><i> Ctrl+S to save<div class = 'r'>Edited: " + todolist.tasks[number].edited + "</i></div></div>").appendTo(document.getElementById(number));
 	
 	$("#save").on('click', function (event) {
 		todolist.save(); 
@@ -169,7 +168,6 @@ $(document).ready(function() {
 	$("<div class = 'addimportantfalse' id = 'imp'></div>").text("Important!").appendTo(div1);
 	$("<div class = 'editablediv' contentEditable='true' id = 'adddiv'></div>").appendTo(div1);
 	$("<button input type = 'button' class = 'btn1' id = 'addbutton'>Add</button>").appendTo(div1);
-	$("<div><hr class = 'hr'><font color = '#696969' size = '2px'><i> Write new task here</i></div>").appendTo(div1);
 	document.getElementById("adddiv").focus();
 	$("#imp").on('click', function (event) {
 		if (!todolist.impchecked) {

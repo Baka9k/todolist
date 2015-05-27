@@ -1,7 +1,7 @@
 body {
 	background-image: url(bg.jpg);
 	background-size: 600px 600px;
-	color: #FFFFFF;
+	color: #999999;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 13px;
 }
@@ -45,17 +45,17 @@ body {
     padding-right: 30px; 
 	padding-bottom: 30px;
 	color:#000000;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	word-wrap:break-word;
-	hyphens:auto;
-	position: relative;
+	position: absolute; 
+	bottom: 0;
 	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
 	min-width: 370px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 20px;
+	border: 1px solid rgba(255,255,255,0);
+	border-bottom-color: #cccccc;
+	-webkit-background-clip: padding-box;   /* for Safari */
+    background-clip: padding-box; 			/* for IE9+, Firefox 4+, Opera, Chrome */
 	
 	white-space: pre-wrap;      /* CSS3 */   
 	white-space: -moz-pre-wrap; /* Firefox */    
@@ -66,16 +66,15 @@ body {
 	-webkit-transition: all 180ms ease-out 0s;
     -moz-transition: all 180ms ease-out 0s;
     -o-transition: all 180ms ease-out 0s;
-    transition: all 180ms ease-out 0s;
-	}
+    transition: all 60ms ease-out 0s;
+}
 	
 .task:hover { 
-	background: #efefef;
+	
 }
 
 .newdiv:hover { 
-	width: 87%;
-	box-shadow: 0px 0px 20px #202020, 5px 5px 25px #101010;
+	
 }
 	
 .tasknumber { 
@@ -200,7 +199,7 @@ body {
 	margin-left: auto;
     margin-right: auto;	
 	
-	color:#FFFFFF;
+	color:#aaaaaa;
 	padding-top: 32px;
 	padding-bottom: 8px;
 	
@@ -248,18 +247,25 @@ body {
 
 .maindiv {
 	width: 60%;
+	height: 84%;
+	position: absolute;
 	background: #ffffff;
 	border-radius: 20px;
 	margin-top: 40px;
 	margin-bottom: 20px;
 	min-width: 700px;
-	margin-left: auto;
+	margin-left: 20%;
     margin-right: auto;
 	padding-bottom: 40px;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
 	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
     -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
     box-shadow:         inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
 }
+
+.maindiv::-webkit-scrollbar { width: 0 !important }
 
 .editablediv {
 	display:inline-block;
@@ -268,16 +274,6 @@ body {
 	font-size: 20px;
 	outline: none;
 	margin-top: 7px;
-}
-
-
-.hr {
-	width: 108.5%;
-	margin-left: -3.4%;
-	height: 1px;
-	display: block;
-	border: none;
-	background-color: #cccccc;
 }
 
 .r {
