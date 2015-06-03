@@ -46,7 +46,7 @@ todolist.addTask = function () {
 	$("<div class = 'tasknumber'></div>").text("#" + todolist.dc + "  ").appendTo(div1);
 	$("<div class = 'taskdate'></div>").text(date.toDateString()).appendTo(div1);
 	if (important) {$("<div class = 'important'></div>").text("Important!").appendTo(div1);}
-	$("<div class = 'uncompleteddiv'></div>").text("Uncompleted").appendTo(div1);
+	$("<div class = 'uncompleteddiv'></div>").html("Uncompleted <img src = 'images/uncomp.png'>").appendTo(div1);
 
 	$("<div class = 'editablediv'></div>").appendTo(div1).text(text);
 	
@@ -59,9 +59,9 @@ todolist.addTask = function () {
 			if (!todolist.divischanging) {
 				var t = todolist.tasks[i].changecompletedprop();
 				if (!t) {
-					$(div).attr({class: "uncompleteddiv"}).text("Uncompleted");
+					$(div).attr({class: "uncompleteddiv"}).html("Uncompleted <img src = 'images/uncomp.png'>");
 				} else {
-					$(div).attr({class: "completeddiv"}).text("Completed");
+					$(div).attr({class: "completeddiv"}).html("Completed <img src = 'images/comp.png'>");
 				}
 				event.stopPropagation();
 			}
@@ -88,7 +88,7 @@ todolist.changeDiv = function (number) {
 	todolist.divischanging = true;
 	todolist.changingdivi = number;
 	$('#' + number).find('.editablediv').attr({contentEditable: true});
-	$("<button input type = 'button' class = 'btn1' id = 'save'>Save</button>").appendTo(document.getElementById(number));
+	$("<button input type = 'button' class = 'btn' id = 'save'>Save</button>").appendTo(document.getElementById(number));
 	
 	$("#save").on('click', function (event) {
 		todolist.save(); 
@@ -110,7 +110,7 @@ todolist.changeDiv = function (number) {
 
 todolist.save = function () {
 	if (!todolist.divischanging) {return;}
-	$("#save").remove();
+	$('#save').slideUp(300, function(){ $(this).remove();});
 	$('#' + todolist.changingdivi).find('.editablediv').attr({contentEditable: false});
 	todolist.tasks[todolist.changingdivi].text = $('#' + todolist.changingdivi).text();
 	var d = new Date().toString();
@@ -160,7 +160,7 @@ $(document).ready(function() {
 	$("<div class = 'taskdate'></div>").attr({class: "taskdate"}).text(date.toDateString()).appendTo(div1);
 	$("<div class = 'addimportantfalse' id = 'imp'></div>").text("Important!").appendTo(div1);
 	$("<div class = 'editablediv' contentEditable='true' id = 'adddiv'></div>").appendTo(div1);
-	$("<button input type = 'button' class = 'btn1' id = 'addbutton'>Add</button>").appendTo(div1);
+	$("<button input type = 'button' class = 'btn' id = 'addbutton'>Add</button>").appendTo(div1);
 	document.getElementById("adddiv").focus();
 	$("#imp").on('click', function (event) {
 		if (!todolist.impchecked) {

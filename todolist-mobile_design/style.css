@@ -1,5 +1,5 @@
 body {
-	background-image: url(bg.jpg);
+	background-image: url(images/bg.jpg);
 	background-size: 600px 600px;
 	color: #999999;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -30,11 +30,6 @@ body {
 	white-space: -pre-wrap;     /* Opera <7 */   
 	white-space: -o-pre-wrap;   /* Opera 7 */    
 	word-wrap: break-word;      /* IE */
-	
-	-webkit-transition: all 180ms ease-out 0s;
-    -moz-transition: all 180ms ease-out 0s;
-    -o-transition: all 180ms ease-out 0s;
-    transition: all 60ms ease-out 0s;
 	
 	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb;
     -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb;
@@ -67,24 +62,11 @@ body {
 	white-space: -o-pre-wrap;   /* Opera 7 */    
 	word-wrap: break-word;      /* IE */
 	
-	-webkit-transition: all 180ms ease-out 0s;
-    -moz-transition: all 180ms ease-out 0s;
-    -o-transition: all 180ms ease-out 0s;
-    transition: all 60ms ease-out 0s;
-	
 	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb;
     -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb;
     box-shadow:         inset -14px 0px 18px -15px #bbbbbb, inset 14px 0px 18px -15px #bbbbbb;
 }
-	
-.task:hover { 
-	
-}
 
-.newdiv:hover { 
-	
-}
-	
 .tasknumber { 
     padding: 2px;
     padding-right: 2px;
@@ -151,33 +133,7 @@ body {
 	}
 
 .btn {
-	background: #bbbbbb;
-	background-image: linear-gradient(top, #bcbcbc, #aaaaaa);
-	background-image: linear-gradient(to bottom, #bcbcbc, #aaaaaa);
-	font-family: Helvetica;
-	font-weight:700;
-	text-shadow: -1px -1px 0px #999999;
-	color: #eeeeee;
-	font-size: 20px;
-	padding: 35px 25px 35px 25px;
-	text-decoration: none;
-	
-	-moz-user-select: none; 
-	-khtml-user-select: none; 
-	-webkit-user-select: none; 
-	-o-user-select: none;
-}
-
-.btn:hover {
-	background-image: linear-gradient(top, #bfbfbf, #afafaf);
-	background-image: linear-gradient(to bottom, #bfbfbf, #afafaf);
-	text-decoration: none;
-}
-
-.btn1 {
-	background: #81C784;
-	background-image: linear-gradient(top, #81C784, #4CAF50);
-	background-image: linear-gradient(to bottom, #81C784, #4CAF50);
+	background-color: #4BD763;
 	font-family: Helvetica;
 	font-weight:700;
 	text-shadow: -1px -1px 0px #999999;
@@ -188,18 +144,39 @@ body {
 	position: absolute;
 	float: right;
 	bottom: 4px;
-	right: 4px;
+	right: 16px;
+	
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
 
 	-moz-user-select: none; 
 	-khtml-user-select: none; 
 	-webkit-user-select: none; 
 	-o-user-select: none;
+	
+	opacity: 0.9;
+	
+	-webkit-animation-name: btn-animation; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+    animation-name: btn-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
 }
 
-.btn1:hover {
-	background-image: linear-gradient(top, #A5D6A7, #66BB6A);
-	background-image: linear-gradient(to bottom, #A5D6A7, #66BB6A);
-	text-decoration: none;
+@-webkit-keyframes btn-animation {
+    0%  {right: -100px;}
+    100% {right: 16px;}
+}
+
+@keyframes btn-animation {
+	0%  {right: -100px;}
+    100% {right: 16px;}
+}
+
+.btn:hover {
+	opacity: 1;
 }
 
 .header {
@@ -217,12 +194,11 @@ body {
 }
 
 .uncompleteddiv {
+	width: 190px;
 	float: right;
     padding: 2px;
     padding-right: 2px; 
-    border: solid 2px #000F55;
-	color:#000F55;
-	margin-right: 3px;
+	color:#999999;
 	cursor: pointer;
 	
 	-webkit-touch-callout: none;
@@ -231,17 +207,32 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+	
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 360ms ease-in-out;
+}
+
+div.uncompleteddiv img {
+	height: 33px;
+	width: 50px;
+	float: right;
+}
+
+div.completeddiv img {
+	height: 33px;
+	width: 50px;
+	float: right;
 }
 
 .completeddiv {
+	width: 190px;
 	float: right;
-    padding-left: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
     padding-right: 2px; 
-    border: solid 2px #008000;
-	color:#008000;
-	margin-right: 8px;
+	color:#4BD763;
 	cursor: pointer;
 	
 	-webkit-touch-callout: none;
@@ -250,10 +241,13 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+	
+	transition: all 360ms ease-in-out;
 }
 
 
 .maindiv {
+	overflow: hidden;
 	width: 60%;
 	height: 84%;
 	position: absolute;
