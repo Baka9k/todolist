@@ -110,7 +110,6 @@ todolist.changeDiv = function (number) {
 
 todolist.save = function () {
 	if (!todolist.divischanging) {return;}
-	$('#save').slideUp(300, function(){ $(this).remove();});
 	$('#' + todolist.changingdivi).find('.editablediv').attr({contentEditable: false});
 	todolist.tasks[todolist.changingdivi].text = $('#' + todolist.changingdivi).text();
 	var d = new Date().toString();
@@ -118,6 +117,7 @@ todolist.save = function () {
 	todolist.tasks[todolist.changingdivi].edited = d[0];
 	todolist.divischanging = false;
 	todolist.changingdivi = "-1"; 
+	$('#save').attr("id","old").slideUp(300, function(){ $(this).remove();});
 	document.getElementById("adddiv").focus();
 };
 
