@@ -1,15 +1,10 @@
-/* ----------- iPhone 4 and 4S ----------- */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
+@media screen and (max-width: 500px) {
 	.maindiv {
 		overflow: hidden;
 		width: 98%;
 		height: 94%;
 		position: absolute;
-		background: #fccccf;
+		background: #aaaaff;
 		border-radius: 20px;
 		margin-top: 40px;
 		margin-bottom: 20px;
