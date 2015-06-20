@@ -57,9 +57,9 @@ body {
 	white-space: -o-pre-wrap;   /* Opera 7 */    
 	word-wrap: break-word;      /* IE */
 	
-	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb;
-    -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb;
-    box-shadow:         inset -14px 0px 18px -15px #bbbbbb, inset 14px 0px 18px -15px #bbbbbb;
+	-moz-box-shadow:    inset -20px 0px 18px -21px #bbbbbb, inset 20px 0px 18px -21px #bbbbbb;
+    -webkit-box-shadow: inset -20px 0px 18px -21px #bbbbbb, inset 20px 0px 18px -21px #bbbbbb;
+    box-shadow:         inset -20px 0px 18px -21px #bbbbbb, inset 20px 0px 18px -21px #bbbbbb;
 }
 
 .newdiv { 
@@ -177,12 +177,13 @@ body {
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 
+	-webkit-touch-callout: none;
 	-moz-user-select: none; 
 	-khtml-user-select: none; 
 	-webkit-user-select: none; 
 	-o-user-select: none;
-	
-	opacity: 0.9;
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;  
 	
 	-webkit-animation-name: btn-animation; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
@@ -192,6 +193,9 @@ body {
     animation-iteration-count: 1;
 }
 
+.btn::selection { background: transparent; }
+.btn::-moz-selection { background: transparent; }
+
 @-webkit-keyframes btn-animation {
     0%  {right: -100px;}
     100% {right: 16px;}
@@ -200,10 +204,6 @@ body {
 @keyframes btn-animation {
 	0%  {right: -100px;}
     100% {right: 16px;}
-}
-
-.btn:hover {
-	opacity: 1;
 }
 
 .header {
@@ -308,6 +308,7 @@ div.completeddiv img {
 	font-size: 20px;
 	outline: none;
 	margin-top: 7px;
+	min-height: 18px;
 }
 
 .r {

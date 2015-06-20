@@ -55,7 +55,7 @@ todolist.addTask = function () {
 	
 	var tasklist0 = $('.completeddiv, .uncompleteddiv');
 	$.each(tasklist0, function(i, div) {
-		$(div).click(function() {
+		$(div).click(function(event) {
 			if (!todolist.divischanging) {
 				var t = todolist.tasks[i].changecompletedprop();
 				if (!t) {
@@ -92,6 +92,7 @@ todolist.changeDiv = function (number) {
 	
 	$("#save").on('click', function (event) {
 		todolist.save(); 
+		if (!event) {var event = window.event;}
 		event.stopPropagation();
 	});
 	
