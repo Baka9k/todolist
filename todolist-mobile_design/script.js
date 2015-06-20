@@ -24,6 +24,7 @@ todolist.hidecomp = false;
 todolist.onlyimp = false;
 
 todolist.addTask = function () {
+	todolist.save();
 	var text = $("#adddiv").text();
 	if (text == "") {return;}
 	var date = new Date();
