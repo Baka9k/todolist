@@ -71,7 +71,7 @@ body {
 	color:#454545;
 	word-wrap:break-word;
 	position: absolute; 
-	bottom: 10px;
+	bottom: 28px;
 	left: 0px;
 	right: 0px;
 	min-width: 370px;
@@ -79,6 +79,7 @@ body {
 	font-size: 20px;
 	border: 1px solid rgba(255,255,255,0);
 	border-top-color: #cccccc;
+	border-bottom-color: #cccccc;
 	-webkit-background-clip: padding-box;   /* for Safari */
     background-clip: padding-box; 			/* for IE9+, Firefox 4+, Opera, Chrome */
 	
@@ -278,11 +279,12 @@ div.completeddiv img {
 	position: absolute;
 	background: #ffffff;
 	border-radius: 20px;
-	margin-top: 40px;
-	margin-bottom: 20px;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+	top: 40px;
+	bottom: 20px;
 	min-width: 700px;
-	margin-left: 20%;
-    margin-right: auto;
 	padding-bottom: 40px;
 	-moz-box-shadow:    inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
     -webkit-box-shadow: inset 0px 4px 18px 0px #bbbbbb, 0px 0px 5px #ffffff, 0px 3px 1px rgba(255,255,233,0.85);
@@ -320,4 +322,13 @@ div.completeddiv img {
 
 .hidden {
 	display: none;
+}
+
+.table {
+	width: 300px;
+	position: absolute;
+	margin: auto;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
 }
